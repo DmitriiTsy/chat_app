@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Message } from '../components/types/Message';
+import MessageItem from './messages/MessageItem';
 
 interface ChatHistoryProps {
   messages: Message[];
@@ -21,10 +22,7 @@ const ChatHistory: React.FC<ChatHistoryProps> = ({ messages }) => {
       {isChatHistoryVisible && (
         <div>
           {messages.map((msg) => (
-            <div key={msg.id} className="mb-2">
-              <span className="font-bold">{msg.username}: </span>
-              {msg.text}
-            </div>
+            <MessageItem key={msg.id} message={msg} />
           ))}
         </div>
       )}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { supabase } from '../supabase/supabaseClient';
+import { InputInfo, InputType } from './types/Message';
 
 interface MessageInputProps {
   username: string;
@@ -31,7 +32,7 @@ const MessageInput: React.FC<MessageInputProps> = ({ username, userId, onMessage
   return (
     <form onSubmit={handleSendMessage} className="flex">
       <input
-        type="text"
+        type={InputType.TEXT}
         placeholder="Type your message"
         className="flex-grow p-2 mr-2 border rounded text-black"
         value={message}
@@ -41,7 +42,7 @@ const MessageInput: React.FC<MessageInputProps> = ({ username, userId, onMessage
         type="submit"
         className="bg-blue-500 text-white px-4 py-2 rounded"
       >
-        Send
+        {InputInfo.SEND}
       </button>
     </form>
   );

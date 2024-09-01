@@ -4,6 +4,7 @@ import ChatHistory from './ChatHistory';
 import MessageInput from './MessageInput';
 import UsernameInput from './UsernameInput';
 import { Message } from '../components/types/Message';
+import MessageItem from './messages/MessageItem';
 
 const Chat: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -52,10 +53,7 @@ const Chat: React.FC = () => {
       <div className="w-3/4 flex flex-col">
         <div className="flex-grow p-4 overflow-y-auto">
           {messages.map((msg) => (
-            <div key={msg.id} className="mb-2">
-              <span className="font-bold">{msg.username}: </span>
-              {msg.text}
-            </div>
+            <MessageItem key={msg.id} message={msg} />
           ))}
         </div>
         <div className="p-4">
